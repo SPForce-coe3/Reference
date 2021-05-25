@@ -2,7 +2,8 @@ version: 0.2
 
 env:
   variables:
-    _PROJECT_NAME: "room"
+    _PROJECT_NAME: "test01-room"
+    _AWS_DEFAULT_REGION: "ap-northeast-2"
 
 phases:
   install:
