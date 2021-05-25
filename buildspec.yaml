@@ -32,7 +32,7 @@ phases:
       - echo Building the Docker image...
       - mvn package -Dmaven.test.skip=true
 #      - docker build -t $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$_PROJECT_NAME:$_IMAGE_VERSION  . 
-      - docker build -t 075134174875.dkr.ecr.ap-northeast-2.amazonaws.com/test01-room:1.0
+      - docker build -t 075134174875.dkr.ecr.ap-northeast-2.amazonaws.com/test01-room:1.0 .
   post_build:
     commands:
       - echo Pushing the Docker image...
