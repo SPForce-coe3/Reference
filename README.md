@@ -50,9 +50,9 @@ Ubuntu 20.04 LTS 실행
    mvn -v  
    apt list maven  
   
-# VSCODE 구성
+# VSCODE 구성  (Windows)
 
-VSCODE 다운로드 및 설치 (Windows용)
+VSCODE 다운로드 및 설치
 - https://code.visualstudio.com/download
 
 EXTENTIONS 설치
