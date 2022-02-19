@@ -49,7 +49,39 @@ Ubuntu 20.04 LTS 실행
    sudo apt install maven  
    mvn -v  
    apt list maven  
-  
+   
+ 5. docker 설치   https://blog.naver.com/PostView.nhn?blogId=ilikebigmac&logNo=222007741507
+   기존버전 삭제  
+   apt-get remove docker docker-engine docker.io
+   
+   Package 설치  
+   sudo apt-get update && sudo apt-get install \
+   apt-transport-https \
+   ca-certificates \
+   curl \
+   software-properties-common
+ 
+   GPG key 추가  
+   curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
+   Repository 추가  
+   sudo add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable"
+
+   패키지 정상설치 여부 확인
+   sudo apt-get update && sudo apt-cache search docker-ce
+   
+   Docker ce 설치  
+   sudo apt-get update && sudo apt-get install docker-ce
+
+   사용자추가  
+   sudo usermod -aG docker $USER
+   
+   Docker 설치확인
+   sudo docker --version
+
 # VSCODE 구성  (Windows)
 
 VSCODE 다운로드 및 설치
