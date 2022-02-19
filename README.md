@@ -98,3 +98,9 @@ VSCODE 다운로드 및 설치
 EXTENTIONS 설치
 
 1. Remote-WSL
+2. Docker
+3. Kubernetes
+4. Extension Pack for Java
+5. Spring Boot Extension Pack
+6. lombok
+
