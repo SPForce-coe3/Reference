@@ -23,72 +23,102 @@ WSL 설치
 Ubuntu 20.04 LTS 실행
 
 1. apt 업데이트
-  - sudo apt-get update && sudo apt-get upgrade
-  ![image](https://user-images.githubusercontent.com/80744273/154805296-0d9975d5-6ff1-458b-b3f5-4f5aa0ebe9b7.png)
+ ```
+  sudo apt-get update && sudo apt-get upgrade
+ ```
+ ![image](https://user-images.githubusercontent.com/80744273/154805296-0d9975d5-6ff1-458b-b3f5-4f5aa0ebe9b7.png)
 
 2. openjdk-11-jdk를 설치
-  - sudo apt-get install openjdk-11-jdk
-  ![image](https://user-images.githubusercontent.com/80744273/154805408-d4a41e79-5009-47ba-aaba-e9b7fcb4282e.png)
+ ```
+  sudo apt-get install openjdk-11-jdk
+ ```
+ ![image](https://user-images.githubusercontent.com/80744273/154805408-d4a41e79-5009-47ba-aaba-e9b7fcb4282e.png)
 
 3.JAVA 환경 설정
- -  vim ~/.bashrc
+ ```
+ vim ~/.bashrc
+ ```
  -  맨아래 아래 내용을 추가함   
-    export JAVA_HOME=$(dirname $(dirname $(readlink -f $(which java))))  
-    export PATH=$PATH:$JAVA_HOME/bin  
-    ![image](https://user-images.githubusercontent.com/80744273/154805615-2ce20510-c686-43a1-a2e1-3e4a96c3568c.png)  
+ ```
+  export JAVA_HOME=$(dirname $(dirname $(readlink -f $(which java))))  
+  export PATH=$PATH:$JAVA_HOME/bin  
+ ```
+ ![image](https://user-images.githubusercontent.com/80744273/154805615-2ce20510-c686-43a1-a2e1-3e4a96c3568c.png)  
+
 
  - 다음 명령어로 변경한 설정을 현재 실행된 쉘에 적용할 수 있습니다. 또는 새로운 터미널 창을 실행시키면 됩니다  
-    source ~/.bashrc
-
+ ```
+  source ~/.bashrc
+ ```
  - 다음과 같이 JAVA_HOME이 설정되었는지 확인할 수 있습니다.  
-   echo $JAVA_HOME  
-   /usr/lib/jvm/java-11-openjdk-amd64  
-   ![image](https://user-images.githubusercontent.com/80744273/154805778-dfe70b1b-426e-4db5-a490-e71ee6f6e4e7.png)
+ ```
+  echo $JAVA_HOME  
+  /usr/lib/jvm/java-11-openjdk-amd64  
+ ```
+ ![image](https://user-images.githubusercontent.com/80744273/154805778-dfe70b1b-426e-4db5-a490-e71ee6f6e4e7.png)
+   
 
  4. Maven 설치  
+  ```
    sudo apt install maven  
    mvn -v  
    apt list maven  
+  ```
    
  5. docker 설치   https://blog.naver.com/PostView.nhn?blogId=ilikebigmac&logNo=222007741507  
  
-   - 기존버전 삭제  
+  - 기존버전 삭제  
+  ```
    apt-get remove docker docker-engine docker.io
    
-   - Package 설치  
+  - Package 설치  
+  ```
    sudo apt-get update && sudo apt-get install \
    apt-transport-https \
    ca-certificates \
    curl \
    software-properties-common
+  ```
  
-   - GPG key 추가  
+  - GPG key 추가  
+  ```
    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+  ```
+  - Repository 추가  
+   ```
+    sudo add-apt-repository \
+    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+    $(lsb_release -cs) \
+    stable"
+    ```
 
-   - Repository 추가  
-   sudo add-apt-repository \
-   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-   $(lsb_release -cs) \
-   stable"
-
-   - 패키지 정상설치 여부 확인  
+  - 패키지 정상설치 여부 확인  
+  ```
    sudo apt-get update && sudo apt-cache search docker-ce
+  ```
    
-   - Docker ce 설치  
+  - Docker ce 설치  
+  ```
    sudo apt-get update && sudo apt-get install docker-ce
+  ```
 
-   - 사용자추가  
+  - 사용자추가  
+  ```
    sudo usermod -aG docker $USER  
+  ```
    
-   - Docker 설치확인  
+  - Docker 설치확인  
+  ```
    sudo docker --version  
+  ```
    
-   - 기타  
-     systemctl start docker  
-     systemctl enable docker  
-  
-     sudo service docker status  
-     sudo service docker start  
+  - 기타  
+  ```
+   systemctl start docker  
+   systemctl enable docker  
+   sudo service docker status  
+   sudo service docker start  
+  ```
 
 # VSCODE 구성  (Windows)
 
