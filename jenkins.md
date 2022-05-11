@@ -269,6 +269,7 @@
     
 #### Reference
  - https://velog.io/@aylee5/EKS-Helm%EC%9C%BC%EB%A1%9C-Jenkins-%EB%B0%B0%ED%8F%AC-MasterSlave-%EA%B5%AC%EC%A1%B0-with-Persistent-VolumeEBS
+ - https://aws.amazon.com/ko/blogs/storage/deploying-jenkins-on-amazon-eks-with-amazon-efs/
  - https://nyyang.tistory.com/113
  - https://www.jenkins.io/doc/book/installing/kubernetes/
  - https://www.eksworkshop.com/intermediate/210_jenkins/deploy/
