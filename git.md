@@ -1,11 +1,14 @@
 
-#### Table of contents
+### Table of contents
   - 사전준비
-  - Repository 생성
+  - 로컬 리포지토리 생성
+  - 첫 번째 
+  - Git Flow 저장소 초기화
+  - 자주 사용하는 Git 명령어
   - Reference
 
 
-#### 사전준비
+### 사전준비
   - #### Git 설치하기    
     ```
     sudo apt-get intsall git
@@ -18,12 +21,12 @@
   - #### 레파지토리 생성
     ![image](https://user-images.githubusercontent.com/80744273/167784016-6ee034cb-ed6f-49ca-9ecd-156adf1a15c2.png)
 
-
-#### 첫 커밋 생성
   - #### 소스트리 다운로드 및 설치   
     https://www.sourcetreeapp.com/
-   
-  - #### 로컬 리포지토리 생성    
+    
+### 로컬 리포지토리 생성
+  
+  - #### 리포지토리 복제
     ```
     git clone https://git-codecommit.ap-northeast-2.amazonaws.com/v1/repos/edp.emc.water.wte.ui
     cd edp.emc.water.wte.ui
@@ -34,6 +37,7 @@
   - #### 소스트리에 리포지토리 추가  
     ![image](https://user-images.githubusercontent.com/80744273/167785706-0422f452-802f-490f-bac9-92607e0b8bc7.png)
  
+### 첫 번째 커밋
   - #### git config를 실행하여 사용자 이름 및 이메일 주소를 로컬 리포지토리에 추가합니다    
     ```    
     git config --local user.name "your-user-name"
@@ -56,15 +60,16 @@
 ### Git 명령어
   - #### 로컬 리포지토리 생성    
     ```
-    git push -u origin main
+    git push -u origin master
     ```    
   - #### 로컬 브랜치 생성 및 체크아웃
     ```
+    git checkout -b master
     git checkout -b develop
     ```  
   - #### 기본 브랜치 이름을 설정함.    
     ```
-    git config --local init.defaultBranch main
+    git config --local init.defaultBranch develop
     ```    
     
   - #### 브랜치 목록 조회
