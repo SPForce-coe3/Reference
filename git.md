@@ -2,7 +2,7 @@
 ### Table of contents
   - 사전준비
   - 로컬 리포지토리 생성
-  - 첫 번째 
+  - 첫 번째 커밋
   - Git Flow 저장소 초기화
   - 자주 사용하는 Git 명령어
   - Reference
