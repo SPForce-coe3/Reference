@@ -111,6 +111,7 @@
     ```
     $ kubectl create namespace jenkins
     ```
+    
   - #### Create a persistent volume
     - jenkins-pvc.yaml 작성
     ```
@@ -140,30 +141,11 @@
     ```
     $ kubectl apply -f jenkins-pvc.yaml    
     ```     
-  - #### Create a persistent volume
-    - jenkins-volume.yaml 작성   
-    ```
-        apiVersion: v1
-        kind: PersistentVolume
-        metadata:
-          name: jenkins-pv
-          namespace: jenkins
-        spec:
-          storageClassName: jenkins-pv
-          accessModes:
-          - ReadWriteOnce
-          capacity:
-            storage: 20Gi
-          persistentVolumeReclaimPolicy: Retain
-          hostPath:
-            path: /data/jenkins-volume/    
-    ```
-    - Run the following command to apply the spec     
-    ```
-    $ kubectl apply -f jenkins-volume.yaml    
-    ```    
+
  - #### Create a service account   
-   - jenkins-sa.yaml 작성
+   - jenkins-sa.yaml 작성   
+   https://raw.githubusercontent.com/installing-jenkins-on-kubernetes/jenkins-sa.yaml
+   
     ```
     ---
     apiVersion: v1
@@ -248,8 +230,10 @@
       $ kubectl apply -f jenkins-sa.yaml
     ```
 #### Install Jenkins
-   - jenkins-values.yaml
-    - LoadBalancer
+   - jenkins-values.yaml   
+   https://raw.githubusercontent.com/jenkinsci/helm-charts/main/charts/jenkins/values.yaml   
+   
+    - LoadBalancer  수정하기
     ```
     serviceType: LoadBalancer
     # Jenkins controller service annotations
@@ -257,14 +241,14 @@
         service.beta.kubernetes.io/aws-load-balancer-type: "nlb"
         service.beta.kubernetes.io/aws-load-balancer-subnets: subnet-0d8d50653b7935fee,subnet-088cab1b1e8d2966c
     ```
-    - persistence
+    - persistence 수정하기
     ```
-    persistence: 
+    persistence:  
       enabled: true
       existingClaim: jenkins-pvc  
       storageClass: jenkins-sc
     ```
-    - serviceAccount
+    - serviceAccount 수정하기      
     ```
     serviceAccount:
       create: false
@@ -274,11 +258,11 @@
       imagePullSecretName:
     ```
     
-   - Run the following command to apply the spec
+   - Run the following command to apply the spec   
     ```
     helm install jenkins -n jenkins -f jenkins-values.yml jenkinsci/jenkins
     ```
-   - Get your 'admin' user password by running:
+   - Get your 'admin' user password by running:   
     ```
     kubectl exec --namespace jenkins -it svc/jenkins -c jenkins -- /bin/cat /run/secrets/chart-admin-password && echo
     ```
