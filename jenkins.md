@@ -107,6 +107,7 @@
     apiVersion: storage.k8s.io/v1
     metadata:
       name: jenkins-sc
+      namespace: jenkins
     provisioner: ebs.csi.aws.com
     volumeBindingMode: WaitForFirstConsumer
 
