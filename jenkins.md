@@ -260,7 +260,7 @@
     
    - Run the following command to apply the spec   
     ```
-    helm install jenkins -n jenkins -f jenkins-values.yml jenkinsci/jenkins
+    helm install jenkins -n jenkins -f jenkins-values.yaml jenkinsci/jenkins
     ```
    - Get your 'admin' user password by running:   
     ```
